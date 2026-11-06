@@ -1,0 +1,18 @@
+{
+  "name": "diploma-digital-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Consulta Oracle, gera JSON do diploma digital, valida em cascata e envia pela API",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "oracledb": "^6.5.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

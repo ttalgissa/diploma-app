@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Diploma Digital</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topo">
+    <div>
+      <h1>Diploma Digital</h1>
+      <p class="sub">Consulta no Oracle, validação em cascata e envio pela API</p>
+    </div>
+    <div class="topo-acoes">
+      <span id="chipChave" class="chip">Chave: verificando…</span>
+      <button id="btnChave" class="secundario">Gerar chave</button>
+    </div>
+  </header>
+
+  <div id="avisoConfig" class="faixa" hidden></div>
+
+  <main class="layout">
+    <aside class="coluna">
+      <section class="cartao">
+        <h2>Consulta</h2>
+        <div id="blocoRas">
+          <label for="ras">RAs <small>(um por linha ou separados por vírgula)</small></label>
+          <textarea id="ras" rows="4" placeholder="Ex.: 123456&#10;789012"></textarea>
+        </div>
+        <div id="params"></div>
+        <div class="linha">
+          <button id="btnConsultar" class="primario">Consultar no Oracle</button>
+          <button id="btnColar" class="secundario">Colar JSON</button>
+        </div>
+      </section>
+
+      <section class="cartao">
+        <div class="cabeca-lista">
+          <h2>Alunos <span id="contAlunos" class="contador"></span></h2>
+        </div>
+        <ul id="lista" class="lista"></ul>
+        <p id="listaVazia" class="vazio">Nenhum resultado ainda.</p>
+        <button id="btnEnviarTodos" class="secundario largo" hidden>Enviar todos sem erros</button>
+      </section>
+    </aside>
+
+    <section class="coluna-larga" id="detalhe">
+      <div class="placeholder">
+        <h2>Nada selecionado</h2>
+        <p>Consulte um ou mais RAs, ou cole um JSON, para validar aqui.</p>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="dlgColar">
+    <form method="dialog">
+      <h2>Colar JSON</h2>
+      <p class="sub">Valida um JSON sem consultar o banco (por exemplo, o que você já copiou do DBeaver).</p>
+      <textarea id="txtColar" rows="14" spellcheck="false"></textarea>
+      <div class="linha fim">
+        <button value="cancelar" class="secundario">Cancelar</button>
+        <button id="btnConfirmaColar" value="ok" class="primario">Validar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="regras.js"></script>
+  <script src="validador.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

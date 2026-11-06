@@ -1,0 +1,4 @@
+window.REGRAS = {
+  obrigatorios: [
+  ],
+};
